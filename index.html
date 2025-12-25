@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LinkMe - Online Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="images/logo.png" alt="LinkMe Logo">
+    <span>LinkMe</span>
+  </div>
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('marketplace')">Marketplace</a>
+    <a href="#" onclick="showSection('workers')">Workers</a>
+    <a href="#" onclick="showSection('orders')">My Orders</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+</header>
+
+<section id="home" class="section">
+  <h2>Welcome to LinkMe 📦</h2>
+  <p>Share, Sell, Rent, Exchange items or services!</p>
+</section>
+
+<section id="marketplace" class="section">
+  <h2>Marketplace 🛒</h2>
+  <div id="marketItems" class="grid"></div>
+</section>
+
+<section id="workers" class="section">
+  <h2>Available Workers 👷‍♂️</h2>
+  <input type="text" id="workerSearch" placeholder="Search profession..." onkeyup="filterWorkers()">
+  <div id="workerList" class="grid"></div>
+</section>
+
+<section id="orders" class="section">
+  <h2>My Orders 🧾</h2>
+  <div id="orderHistory" class="grid"></div>
+</section>
+
+<!-- Worker / Item Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Show default section
+  showSection('home');
+
+  // Load marketplace and workers
+  loadMarketplace();
+  loadWorkers();
+  loadOrders();
+</script>
+
+</body>
+</html>
